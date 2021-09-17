@@ -10,12 +10,12 @@ const {
 const connectionString = `mongodb://${MONGO_DB_USER}:${MONGO_DB_PWD}@${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_NAME}?authSource=admin`;
 
 // mongo connection options
-let options = {
+const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-  keepAlive : true,
+  keepAlive: true,
   bufferMaxEntries: 0, // and MongoDB driver buffering
 };
 

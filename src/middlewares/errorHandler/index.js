@@ -1,5 +1,5 @@
 // must keep next or error occurs
-export default (err, req, res, next) => {
+export default (err, req, res) => {
   // log stack in console for tracking purposes before we alter
   console.error(err);
 

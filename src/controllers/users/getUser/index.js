@@ -1,6 +1,6 @@
 import User from '../../../models/users';
 
-export default async (req, res) => {
+export default async (req, res, next) => {
   const { userId } = req.params;
 
   try {
@@ -8,8 +8,7 @@ export default async (req, res) => {
       { _id: userId },
     ).exec();
     res.status(200).json(result);
-  } catch(ex) {
+  } catch (ex) {
     next(ex);
-    return;
   }
 };

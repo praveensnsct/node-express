@@ -3,7 +3,9 @@ import User from '../../../models/users';
 
 export default async (req, res, next) => {
   const { userId } = req.params;
-  const { email, status, password, name } = req.body || {};
+  const {
+    email, status, password, name,
+  } = req.body || {};
 
   try {
     const userObj = {};
@@ -18,10 +20,10 @@ export default async (req, res, next) => {
     await User.findOneAndUpdate(
       { _id: userId },
       {
-        ...userObj
-      }
+        ...userObj,
+      },
     ).exec();
-  } catch(ex) {
+  } catch (ex) {
     next(ex);
     return;
   }

@@ -15,6 +15,7 @@ import authRoutes from '../controllers/auth';
 
 // Database
 import connectDB from '../mongo/connect';
+
 connectDB();
 
 const app = express();
