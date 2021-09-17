@@ -2,7 +2,8 @@ import crypto from 'crypto';
 import User from '../../models/users';
 
 const URLException = [
-    '/auth',
+    { method: 'POST', url: '/users'},
+    { method: 'POST', url: '/auth'},
 ];
 
 const matchRegEx = (urlStr, urlReg) => {
@@ -19,10 +20,10 @@ const getUser = async (userId) => {
 
 module.exports = async (req, res, next) => {
     const authToken = req.headers['authorization'] || req.headers['Authorization'];
-    let resource = req.originalUrl && req.originalUrl.split('/')[1];
-    resource = resource.split('?')[0];
+    const urlFinder = URLException.find((resource) => {
+        return matchRegEx(req.originalUrl, resource.url) && resource.method === req.method;
+    });
     
-    const urlFinder = URLException.find((url) => matchRegEx(req.originalUrl, url));
     if (urlFinder) next();
     else {
         try {

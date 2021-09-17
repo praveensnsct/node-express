@@ -9,7 +9,7 @@ export default new Schema({
     index: true,
     unique: true,
   },
-  name: { type: String },
+  name: { type: String, required: true },
   status: { type: String, default: 'A', enum: ['A', 'I'] },
   password: {
     type: String,
@@ -18,6 +18,5 @@ export default new Schema({
   hashKey: { type: String },
   modifiedOn: { type: Date, default: new Date() },
   modifiedBy: { type: String },
-  createBy: { type: String },
   createdOn: { type: Date, default: new Date() },
 }, { versionKey: false });

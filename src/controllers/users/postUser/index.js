@@ -3,7 +3,6 @@ import User from '../../../models/users';
 
 export default async (req, res, next) => {
   const { email, name, password } = req.body;
-  const { userId } = req.session;
 
   let result;
   try {
@@ -12,7 +11,6 @@ export default async (req, res, next) => {
       email: email,
       name: name,
       password: encodedPassword,
-      createdBy: userId || 'admin',
     }
 
     result = await new User(body).save();
