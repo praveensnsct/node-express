@@ -27,7 +27,7 @@ app.use(express.urlencoded({
 app.use(helmet());
 app.use(timeout('30s'));
 app.use(express.json());
-app.use(cors());
+app.use(cors({ credentials: true, origin: ['http://localhost:3000'] }));
 app.use(session({
   secret: SESSION_SECRET,
   resave: false,
