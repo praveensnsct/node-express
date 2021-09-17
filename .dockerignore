@@ -1,0 +1,23 @@
+# Markdown
+*.md
+
+# Unit / Integration Tests
+*.test
+
+# Dev Configurations
+.editorconfig
+.eslintignore
+.eslintrc*
+.gitattributes
+.gitignore
+.vscode
+
+# Source Control
+.git
+
+# System Files / Temp
+.DS_Store
+.history/*
+
+# Other Project Files
+docs/*

@@ -1,0 +1,49 @@
+{
+  "name": "node-express",
+  "version": "0.1.0",
+  "description": "Basic Node Express",
+  "main": "index.js",
+  "repository": "https://github.com/praveensnsct/node-express.git",
+  "author": "Praveen Kumar Thirumurugan <praveensnsct@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint src --fix",
+    "start": "sh ./bin/start.sh",
+    "build": "sh ./bin/build.sh",
+    "serve": "node build/server",
+    "install-mongo": "docker pull mongo",
+    "docker-clean": "docker container prune",
+    "start-mongo": "docker run -d --name mongo-on-docker -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo",
+    "start-docker": "docker run -d --name node-express -p 5000:5000 node-express",
+    "build:docker": "docker build -t node-express:latest ."
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.10",
+    "@babel/node": "^7.13.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.9",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/register": "^7.13.8",
+    "@babel/runtime": "^7.13.10",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "global": "^4.4.0",
+    "helmet": "^4.4.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.2",
+    "universal-dotenv": "^3.2.4"
+  }
+}
