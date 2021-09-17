@@ -18,7 +18,8 @@ Install the following before you start:
 
 ## Getting Started
 1. Clone project from git repository
-    - `$ git clone git@github.com:praveensnsct/node-express.git`
+    - `$ git clone git@github.com:praveensnsct/node-express.git` OR
+    - `$ git clone https://github.com/praveensnsct/node-express.git`
 2.  Change to project directory
     - `$ cd node-express`
 3. Install dependencies
