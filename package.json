@@ -12,11 +12,9 @@
     "start": "sh ./bin/start.sh",
     "build": "sh ./bin/build.sh",
     "serve": "node build/server",
-    "install-mongo": "docker pull mongo",
-    "docker-clean": "docker container prune",
-    "start-mongo": "docker run -d --name mongo-on-docker -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo",
-    "start-docker": "docker run -d --name node-express -p 5000:5000 node-express",
-    "build:docker": "docker build -t node-express:latest ."
+    "build:docker": "docker-compose build --no-cache",
+    "start:docker": "yarn build:docker && docker-compose up -d --force-recreate --renew-anon-volumes",
+    "stop:docker": "docker-compose down"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",

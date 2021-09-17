@@ -2,12 +2,10 @@ const {
   MONGO_DB_HOST,
   MONGO_DB_PORT,
   MONGO_DB_NAME,
-  MONGO_DB_USER,
-  MONGO_DB_PWD,
 } = process.env;
 
 // connection string used for simple connection access
-const connectionString = `mongodb://${MONGO_DB_USER}:${MONGO_DB_PWD}@${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_NAME}?authSource=admin`;
+const connectionString = `mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_NAME}?authSource=admin`;
 
 // mongo connection options
 const options = {

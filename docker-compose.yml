@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  web:
+    build: .
+    ports:
+    - "5000:5000"
+    depends_on:
+    - mongoDB
+    command: yarn serve
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    environment:
+      DEV_HOSTNAME: '0.0.0.0'
+      DEV_PORT: '5000'
+      MONGO_DB_HOST : 'mongoDB'
+      MONGO_DB_PORT : '27017'
+      MONGO_DB_NAME : 'mydatabase'
+      SESSION_SECRET : '["24c652df5e86486df21bbca7f0069cdec658b54f"]'
+  mongoDB:
+    image: mongo
+    ports:
+    - "27017:27017"
+    volumes:
+    - data-volume:/data/db
+volumes:
+  data-volume:

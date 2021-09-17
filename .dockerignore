@@ -21,3 +21,7 @@
 
 # Other Project Files
 docs/*
+
+node_modules
+
+build/*

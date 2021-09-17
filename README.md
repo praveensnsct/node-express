@@ -23,30 +23,15 @@ Install the following before you start:
     - `$ cd node-express`
 3. Install dependencies
     - `$ yarn`
-4.  Install mongo db from Docker
-    - `$ yarn install-mongo`
-5.  Start Mongo server. If it fails proceed to Step 8.
-    - `$ yarn start-mongo`
-6.  Create .env.local file in the root of your project directory and copy the below contents for mongoDB connection. This file is private and will not be shared.
-    - MONGO_DB_HOST='0.0.0.0'
-    - MONGO_DB_PORT='27017'
-    - MONGO_DB_NAME='mydatabase'
-    - MONGO_DB_USER = 'mongoadmin'
-    - MONGO_DB_PWD = 'secret'
-    - SESSION_SECRET = ["24c652df5e86486df21bbca7f0069cdec658b54f"]
-7.  Start server
-    - `$ yarn start`
-8.  Do this if step 5 fails and then process to Step 5
-    - `$ yarn docker-clean`
+4.  Start Mongo and Express server.
+    - `$ yarn start:docker`
+5.  To stop services
+    - `$ yarn stop:docker`
 
 ## Package Scripts
 | Script               | Description                                               |
 |----------------------|-----------------------------------------------------------|
-| `yarn start`         | Start development application server                      |
 | `yarn lint`          | Run linter against src                                    |
 | `yarn lint:fix`      | `yarn lint` but automatically fix any problems            |
-| `yarn build`         | Build application distributable files                     |
-| `yarn serve`         | Start application server                                  |
-| `yarn install-mongo` | Install MongoDB locally                                   |
-| `yarn start-mongo`   | Start mongo server in docker 
-| `yarn docker-clean`  | Clean the existing containers and images                  |
+| `yarn start:docker`  | Install MongoDB locally and run application in docker     |
+| `yarn stop:docker`   | Stop all services                                         |
